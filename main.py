@@ -6,7 +6,7 @@ print("made by 임혁준\n")
 #----------------------------------------------
 f = open('개설강좌정보.csv', 'r')
 r = csv.reader(f)
-data_dic = {};
+data_dic = {}
 for _line in r:
     if(_line[0]=="NO"):
         continue
@@ -39,6 +39,7 @@ print("###데이터를 성공적으로 불러왔습니다###\n")
 lect_name = []
 for _k in data_dic.keys():
     lect_name.append(_k)
+lect_name = sorted(lect_name)
 #----------------------------------------------
 inputC1 = True
 inp_arr = []
@@ -46,7 +47,7 @@ gong_day = "없음"
 while(inputC1):
     inputC1= False
     for i in range(0,len(lect_name) ):
-        print("["+str(i) + "] "+ lect_name[i] + "            (분반 개수:" + str(len(lect_name[i])) + ")")
+        print("["+str(i) + "] "+ lect_name[i] + "            (학점:" + data_dic[lect_name[i]][0]['credit'] + ")")
     print("\n###수강을 원하시는 강의의 번호를 적어주세요. (예: '1 3 4' 입력)")
     inputC = True
 
